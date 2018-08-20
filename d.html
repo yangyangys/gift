@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+        <!-- https://github.com/yangyangys/gift.git -->
+        <!-- D:/X/哈尔滨/2.第二阶段课件_工具/Git/bin/git.exe -->
+    <h1>点击抽奖</h1>
+    <div id="food">
+        <div id="close"></div>
+        <ul>
+            <li>   
+                <dl>
+                    <dt><img src="images/1.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li>   
+                <dl>
+                    <dt><img src="images/2.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li>   
+                <dl>
+                    <dt><img src="images/3.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li>   
+                <dl>
+                    <dt><img src="images/4.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li>   
+                <dl>
+                    <dt><img src="images/5.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li>   
+                <dl>
+                    <dt><img src="images/6.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li>   
+                <dl>
+                    <dt><img src="images/7.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li>   
+                <dl>
+                    <dt><img src="images/8.jpg"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+            <li class="nine">   
+                <dl>
+                    <dt id="btn"><img src="images/9.gif" id="pic"></dt>
+                    <dd>lalal</dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var Btn=document.getElementById('btn');
+        var Li=document.getElementsByTagName('li');
+        var Pic=document.getElementById('pic');
+        var num=i=t=0;  //计数器
+        Btn.onclick=function(){
+            Pic.style.transform="scale(0.6)";
+            Pic.style.transition="1s";
+            view();  //动画视图
+        }
+        function view(){
+            num=parseInt(Math.random()*10+20);  //确定顺时针循环Li个数（固定）
+            console.log("固定："+num);
+            if(i<num){ //i:已完成的Li循环个数（变化）
+                i++; //每循环完一个Li标签+1
+                setTimeout(view,200);
+                console.log("动态:"+i);
+            }
+            else{
+                i=0;
+                Pic.style.transform="scale(0.8)";
+                Pic.style.transition="1s";
+                
+            }
+             //动画
+             if(t<Li.length-1){  //先清空再设置一个
+                for(var j=0;j<Li.length;j++){
+                    Li[j].style.border="2px solid #000";
+                    Li[j].style.background="#fff"; 
+                }
+                 Li[t].style.border="2px solid #ff0";
+                 Li[t].style.background="rgba(255,0,0,0.4)";
+                 t++;
+                 
+             }
+             else{
+                 t=0;
+             }
+        }
+
+
+       
+        
+        
+    </script>
+</body>
+</html>
